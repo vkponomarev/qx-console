@@ -1,19 +1,19 @@
 <?php
 
-namespace console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh;
+namespace console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate;
 
 
 /**
  * Чтение API https://api.exchangerate.host/latest?base=USD&source=crypto
  * Class RatesCryptoLatestApiErhRead
- * @package console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh
+ * @package console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate
  */
-class RatesCryptoLatestApiErhRead
+class RatesCryptoLatestApiErhUpdateRead
 {
 
     /**
      * Есил возникла ошибка в try catch записываем ее сюда
-     * @var \console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh\Exception|\Exception|int
+     * @var \console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\Exception|\Exception|int
      */
     public $logErrorApiException = 0;
 
@@ -29,10 +29,14 @@ class RatesCryptoLatestApiErhRead
      */
     public $apiResponse = 0;
 
+    /**
+     * Конфиг для данного API
+     * @var \console\components\rates\ratesConfigs\RatesConfigsErh
+     */
     public $config;
 
     /**
-     * RatesCryptoLatestApiErhRead constructor.
+     * RatesCryptoLatestApiErhUpdateRead constructor.
      * @param $config \console\components\rates\ratesConfigs\RatesConfigsErh
      */
     function __construct($config)

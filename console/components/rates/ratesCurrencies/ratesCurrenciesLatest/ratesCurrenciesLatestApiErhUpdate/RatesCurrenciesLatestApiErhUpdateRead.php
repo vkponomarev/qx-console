@@ -1,19 +1,19 @@
 <?php
 
-namespace console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh;
+namespace console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate;
 
 
 /**
  * Чтение API https://api.exchangerate.host/latest?base=USD
- * Class RatesCurrenciesLatestApiErhRead
- * @package console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh
+ * Class RatesCurrenciesLatestApiErhUpdateRead
+ * @package console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate
  */
-class RatesCurrenciesLatestApiErhRead
+class RatesCurrenciesLatestApiErhUpdateRead
 {
 
     /**
      * Есил возникла ошибка в try catch записываем ее сюда
-     * @var \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\Exception|\Exception|int
+     * @var
      */
     public $logErrorApiException = 0;
     /**
@@ -32,13 +32,14 @@ class RatesCurrenciesLatestApiErhRead
      */
     public $ratesOrganizationsErh;
     public $config;
+
     /**
      * RatesCurrenciesLatestApiErhRead constructor.
      * @param $config \console\components\rates\ratesConfigs\RatesConfigsErh
      * @param $ratesOrganizationsErh \console\components\rates\ratesOrganizations\RatesOrganizationsDataByApiId
-     * @param $token
+     * @param $sleepTimeSeconds float seconds for sleep() function
      */
-    function __construct($config, $ratesOrganizationsErh)
+    function __construct($config, $ratesOrganizationsErh, $sleepTimeSeconds)
     {
 
         $this->config = $config;
@@ -46,7 +47,7 @@ class RatesCurrenciesLatestApiErhRead
 
         foreach ($ratesOrganizationsErh->organizations as $organization) {
 
-            sleep(1);
+            sleep($sleepTimeSeconds);
 
             $apiUrl =
                 ($organization->source <> 'forex') ?

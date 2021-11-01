@@ -1,6 +1,6 @@
 <?php
 
-namespace console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh;
+namespace console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhInsert;
 
 use console\models\rates\RatesLogs;
 
@@ -10,23 +10,18 @@ use console\models\rates\RatesLogs;
  * Логирование обработки JSON
  * Логирование добавления записей
  * Логирование удаления записей
- * Class RatesCurrenciesLatestApiErhLogs
- * @package console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh
+ * Class RatesCurrenciesOverallApiErhInsertLogs
+ * @package console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhInsert
  */
-class RatesCurrenciesLatestApiErhLogs
+class RatesCurrenciesOverallApiErhInsertLogs
 {
 
-    /**
-     * RatesOrganizationsApiErhLogs constructor.
-     * @param $apiErhDelete \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\RatesCurrenciesLatestApiErhDelete
-     * @throws \Exception
-     */
     function __construct($apiErhDelete)
     {
 
         $logErrorApiAccess = $apiErhDelete->apiErhInsert->apiErhRead->logErrorApiAccess;
         $logErrorApiException = $apiErhDelete->apiErhInsert->apiErhRead->logErrorApiException;
-        $ApiResponse = $apiErhDelete->apiErhInsert->apiErhRead->apiResponse;
+        $apiResponse = $apiErhDelete->apiErhInsert->apiErhRead->apiResponse;
         $config = $apiErhDelete->apiErhInsert->apiErhRead->config;
 
         if ($logErrorApiAccess){
@@ -37,10 +32,8 @@ class RatesCurrenciesLatestApiErhLogs
             $model->message = 'Не удалось получить доступ к API ' . $config->organizationsApi;
             $model->date_time = (new \DateTime('now'))->format('Y-m-d H:i:s');
             $model->save();
-            print_r($model->message . "\r\n");
-
+            print_r("\r\n" . $model->message . "\r\n");
         }
-
         if ($logErrorApiException){
             $model = new RatesLogs();
             $model->api_id = 1;
@@ -49,24 +42,28 @@ class RatesCurrenciesLatestApiErhLogs
             $model->message = $logErrorApiException;
             $model->date_time = (new \DateTime('now'))->format('Y-m-d H:i:s');
             $model->save();
-            print_r($model->message . "\r\n");
-
+            print_r("\r\n" . $model->message . "\r\n");
         }
-
-        if ($ApiResponse){
+        if ($apiResponse){
             $model = new RatesLogs();
             $model->api_id = 1;
             $model->error = 0;
             $model->component = get_class($this);
-            $model->message = 'Обновление rates_currencies_latest последних курсов валют прошло успешно ' . $config->organizationsApi;
+            $model->message = 'Обновление rates_currencies_overall всех курсов валют для данного API прошло успешно ' . $config->organizationsApi;
             $model->date_time = (new \DateTime('now'))->format('Y-m-d H:i:s');
             $model->save();
-            print_r($model->message . "\r\n");
-
+            print_r("\r\n" . $model->message . "\r\n");
         }
-
-
-
+        if (!$apiResponse){
+            $model = new RatesLogs();
+            $model->api_id = 1;
+            $model->error = 0;
+            $model->component = get_class($this);
+            $model->message = 'Обновление rates_currencies_overall всех курсов валют для данного API прошло неудачно ' . $config->organizationsApi;
+            $model->date_time = (new \DateTime('now'))->format('Y-m-d H:i:s');
+            $model->save();
+            print_r("\r\n" . $model->message . "\r\n");
+        }
     }
 }
 

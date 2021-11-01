@@ -29,6 +29,12 @@ class RatesConfigsErh
     public $cryptoLatestApi;
 
     /**
+     * Ссылка на последние обновленные данные курсов криптовалют
+     * @var string
+     */
+    public $currenciesOverallApi;
+
+    /**
      * ID данного API
      * @var int
      */
@@ -39,6 +45,10 @@ class RatesConfigsErh
         $this->apiId = 1;
         $this->organizationsApi = 'https://api.exchangerate.host/sources';
         $this->currenciesLatestApi = 'https://api.exchangerate.host/latest?base=USD';
+
+        //currenciesOverallApi ?source=ecb&start_date=2020-01-01&end_date=2020-01-04
+        $this->currenciesOverallApi = 'https://api.exchangerate.host/timeseries?base=USD';
+
         $this->cryptoLatestApi = 'https://api.exchangerate.host/latest?base=USD&source=crypto';
     }
 

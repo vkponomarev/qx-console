@@ -1,6 +1,6 @@
 <?php
 
-namespace console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh;
+namespace console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate;
 
 
 use console\models\rates\RatesCurrenciesLatest;
@@ -10,12 +10,12 @@ use console\models\rates\RatesCurrenciesLatest;
  * Class RatesCurrenciesLatestApiErhInsert
  * @package console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh
  */
-class RatesCurrenciesLatestApiErhInsert
+class RatesCurrenciesLatestApiErhUpdateInsert
 {
 
     /**
      * Результат чтения API
-     * @var \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\RatesCurrenciesLatestApiErhRead
+     * @var \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate\RatesCurrenciesLatestApiErhUpdateRead
      */
     public $apiErhRead;
 
@@ -27,7 +27,7 @@ class RatesCurrenciesLatestApiErhInsert
 
     /**
      * RatesCurrenciesLatestApiErhInsert constructor.
-     * @param $apiErhRead \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\RatesCurrenciesLatestApiErhRead
+     * @param $apiErhRead \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate\RatesCurrenciesLatestApiErhUpdateRead
      * @param $token \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\RatesCurrenciesLatestToken
      * @throws \Exception
      */

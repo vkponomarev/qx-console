@@ -1,6 +1,6 @@
 <?php
 
-namespace console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh;
+namespace console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate;
 
 
 
@@ -13,15 +13,15 @@ use console\models\rates\RatesLogs;
  * Логирование обработки JSON
  * Логирование добавления записей
  * Логирование удаления записей
- * Class RatesCurrenciesLatestApiErhLogs
- * @package console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh
+ * Class RatesCryptoLatestApiErhUpdateLogs
+ * @package console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate
  */
-class RatesCryptoLatestApiErhLogs
+class RatesCryptoLatestApiErhUpdateLogs
 {
 
     /**
      * RatesCryptoLatestApiErhLogs constructor.
-     * @param $apiErhDelete \console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh\RatesCryptoLatestApiErhDelete
+     * @param $apiErhDelete \console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\RatesCryptoLatestApiErhUpdateDelete
      * @throws \Exception
      */
     function __construct($apiErhDelete)

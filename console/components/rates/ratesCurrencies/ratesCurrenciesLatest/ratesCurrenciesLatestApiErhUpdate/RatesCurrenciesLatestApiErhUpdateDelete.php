@@ -1,27 +1,26 @@
 <?php
 
-namespace console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh;
+namespace console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate;
 
 use console\models\rates\RatesCurrenciesLatest;
 
 /**
  * Удаление старых данных из таблицы rates_currencies_latest
- * Class RatesCurrenciesLatestApiErhDelete
- * @package console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh
+ * Class RatesCurrenciesLatestApiErhUpdateDelete
+ * @package console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate
  */
-class RatesCurrenciesLatestApiErhDelete
+class RatesCurrenciesLatestApiErhUpdateDelete
 {
 
     /**
      * Результат заполнения таблицы
-     * @var \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\RatesCurrenciesLatestApiErhInsert
+     * @var \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate\RatesCurrenciesLatestApiErhUpdateInsert
      */
     public $apiErhInsert;
 
     /**
      * RatesCurrenciesLatestApiErhDelete constructor.
-     * @param $apiErhInsert \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\RatesCurrenciesLatestApiErhInsert
-     * @param $config \console\components\rates\ratesConfigs\RatesConfigsErh
+     * @param $apiErhInsert \console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate\RatesCurrenciesLatestApiErhUpdateInsert
      */
     function __construct($apiErhInsert)
     {

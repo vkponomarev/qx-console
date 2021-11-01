@@ -3,16 +3,17 @@
 use yii\db\Migration;
 
 /**
- * Class m211028_163430_create_table_rates_currencies_latest
+ * Class m211101_100824_create_table_rates_currencies_overall
  */
-class m211028_163430_create_table_rates_currencies_latest extends Migration
+class m211101_100824_create_table_rates_currencies_overall extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('rates_currencies_latest', [
+
+        $this->createTable('rates_currencies_overall', [
             'id' => $this->primaryKey(),
             'api_id' => $this->integer(11)->defaultValue(0),
             'rates_organizations_id' => $this->integer(11)->defaultValue(0),
@@ -25,43 +26,42 @@ class m211028_163430_create_table_rates_currencies_latest extends Migration
         ]);
 
         $this->createIndex(
-            'idx-rates_currencies_latest-api_id',
-            'rates_currencies_latest',
+            'idx-rates_currencies_overall-api_id',
+            'rates_currencies_overall',
             'api_id'
         );
         $this->createIndex(
-            'idx-rates_currencies_latest-rates_organizations_id',
-            'rates_currencies_latest',
+            'idx-rates_currencies_overall-rates_organizations_id',
+            'rates_currencies_overall',
             'rates_organizations_id'
         );
         $this->createIndex(
-            'idx-rates_currencies_latest-rates_organizations_source',
-            'rates_currencies_latest',
+            'idx-rates_currencies_overall-rates_organizations_source',
+            'rates_currencies_overall',
             'rates_organizations_source'
         );
         $this->createIndex(
-            'idx-rates_currencies_latest-base',
-            'rates_currencies_latest',
+            'idx-rates_currencies_overall-base',
+            'rates_currencies_overall',
             'base'
         );
         $this->createIndex(
-            'idx-rates_currencies_latest-currency',
-            'rates_currencies_latest',
+            'idx-rates_currencies_overall-currency',
+            'rates_currencies_overall',
             'currency'
         );
         $this->createIndex(
-            'idx-rates_currencies_latest-date_time',
-            'rates_currencies_latest',
+            'idx-rates_currencies_overall-date_time',
+            'rates_currencies_overall',
             'date_time'
         );
         $this->createIndex(
-            'idx-rates_currencies_latest-token',
-            'rates_currencies_latest',
+            'idx-rates_currencies_overall-token',
+            'rates_currencies_overall',
             'token'
         );
-
-
-
+        
+        
     }
 
     /**
@@ -69,7 +69,7 @@ class m211028_163430_create_table_rates_currencies_latest extends Migration
      */
     public function safeDown()
     {
-        echo "m211028_163430_create_table_rates_currencies_latest cannot be reverted.\n";
+        echo "m211101_100824_create_table_rates_currencies_overall cannot be reverted.\n";
 
         return false;
     }
@@ -83,7 +83,7 @@ class m211028_163430_create_table_rates_currencies_latest extends Migration
 
     public function down()
     {
-        echo "m211028_163430_create_table_rates_currencies_latest cannot be reverted.\n";
+        echo "m211101_100824_create_table_rates_currencies_overall cannot be reverted.\n";
 
         return false;
     }

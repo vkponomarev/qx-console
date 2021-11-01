@@ -1,22 +1,20 @@
 <?php
 
-namespace console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh;
+namespace console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate;
 
-
-use console\models\rates\RatesCryptoLatest;
 
 /**
- * Запись дянных из API https://api.exchangerate.host/latest?base=USD&source=crypto
+  * Запись дянных из API https://api.exchangerate.host/latest?base=USD&source=crypto
  * В таблицу rates_crypto_latest
- * Class RatesCryptoLatestApiErhInsert
- * @package console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh
- */
-class RatesCryptoLatestApiErhInsert
+ * Class RatesCryptoLatestApiErhUpdateInsert
+ * @package console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate
+  */
+class RatesCryptoLatestApiErhUpdateInsert
 {
 
     /**
      * Результат чтения API
-     * @var \console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh\RatesCryptoLatestApiErhInsert
+     * @var \console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\RatesCryptoLatestApiErhUpdateRead
      */
     public $apiErhRead;
 
@@ -28,7 +26,7 @@ class RatesCryptoLatestApiErhInsert
 
     /**
      * RatesCryptoLatestApiErhInsert constructor.
-     * @param $apiErhRead \console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh\RatesCryptoLatestApiErhRead
+     * @param $apiErhRead \console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\RatesCryptoLatestApiErhUpdateRead
      * @param $token \console\components\rates\ratesCrypto\ratesCryptoLatest\RatesCryptoLatestToken
      * @throws \Exception
      */

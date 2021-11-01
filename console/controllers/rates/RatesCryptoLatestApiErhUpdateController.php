@@ -8,6 +8,10 @@ use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiE
 use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh\RatesCryptoLatestApiErhInsert;
 use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh\RatesCryptoLatestApiErhLogs;
 use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErh\RatesCryptoLatestApiErhRead;
+use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\RatesCryptoLatestApiErhUpdateDelete;
+use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\RatesCryptoLatestApiErhUpdateInsert;
+use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\RatesCryptoLatestApiErhUpdateLogs;
+use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\RatesCryptoLatestApiErhUpdateRead;
 use console\components\rates\ratesCrypto\ratesCryptoLatest\RatesCryptoLatestToken;
 
 /**
@@ -27,10 +31,10 @@ class RatesCryptoLatestApiErhUpdateController extends \yii\console\Controller
      */
     public function actionIndex()
     {
-        new RatesCryptoLatestApiErhLogs(
-            new RatesCryptoLatestApiErhDelete(
-                new RatesCryptoLatestApiErhInsert(
-                    new RatesCryptoLatestApiErhRead(
+        new RatesCryptoLatestApiErhUpdateLogs(
+            new RatesCryptoLatestApiErhUpdateDelete(
+                new RatesCryptoLatestApiErhUpdateInsert(
+                    new RatesCryptoLatestApiErhUpdateRead(
                         $this->config = (new RatesConfigs())->erh),
                     new RatesCryptoLatestToken()
                 )

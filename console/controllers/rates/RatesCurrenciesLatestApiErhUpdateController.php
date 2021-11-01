@@ -8,6 +8,10 @@ use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenci
 use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\RatesCurrenciesLatestApiErhInsert;
 use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\RatesCurrenciesLatestApiErhLogs;
 use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\RatesCurrenciesLatestApiErhRead;
+use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate\RatesCurrenciesLatestApiErhUpdateDelete;
+use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate\RatesCurrenciesLatestApiErhUpdateInsert;
+use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate\RatesCurrenciesLatestApiErhUpdateLogs;
+use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErhUpdate\RatesCurrenciesLatestApiErhUpdateRead;
 use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\RatesCurrenciesLatestToken;
 use console\components\rates\ratesOrganizations\RatesOrganizationsDataByApiId;
 
@@ -28,15 +32,17 @@ class RatesCurrenciesLatestApiErhUpdateController extends \yii\console\Controlle
      */
     public function actionIndex()
     {
-        new RatesCurrenciesLatestApiErhLogs(
-            new RatesCurrenciesLatestApiErhDelete(
-                new RatesCurrenciesLatestApiErhInsert(
-                    new RatesCurrenciesLatestApiErhRead(
+        new RatesCurrenciesLatestApiErhUpdateLogs(
+            new RatesCurrenciesLatestApiErhUpdateDelete(
+                new RatesCurrenciesLatestApiErhUpdateInsert(
+                    new RatesCurrenciesLatestApiErhUpdateRead(
                         $this->config = (new RatesConfigs())->erh,
-                        new RatesOrganizationsDataByApiId($this->config->apiId)),
+                        new RatesOrganizationsDataByApiId($this->config->apiId),
+                        $sleepTimeSeconds = 1),
                     new RatesCurrenciesLatestToken()
                 )
-            ));
+            )
+        );
     }
 }
 
