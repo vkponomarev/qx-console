@@ -12,7 +12,6 @@ namespace console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesC
 class RatesCurrenciesOverallApiErhInsertRead
 {
 
-
     /**
      * Организации данного API со списком диапазонов дат
      * @var \console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhInsert\RatesCurrenciesOverallApiErhInsertDateRanges
@@ -24,11 +23,23 @@ class RatesCurrenciesOverallApiErhInsertRead
      * @var \console\components\rates\ratesConfigs\RatesConfigsErh
      */
     public $config;
+
     /**
      * Массив ответ API курсов валют для всех организаций со всеми диапазонами дат
      * @var array
      */
     public $apiResponse = array();
+
+    /**
+     * Есил возникла ошибка в try catch записываем ее сюда
+     * @var
+     */
+    public $logErrorApiException = 0;
+    /**
+     * Если произошла ошибка чтения ссылки API ошибку ставим 1
+     * @var int
+     */
+    public $logErrorApiAccess = 0;
 
     /**
      * RatesCurrenciesOverallApiErhInsertRead constructor.

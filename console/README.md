@@ -17,10 +17,10 @@ php -d memory_limit=512M yii rates/rates-currencies-latest-api-erh-update<br>
 <h3>Работа с API Erh https://api.exchangerate.host/</h3>
 
 <h5>RatesOrganizationsApiErhInsertController</h5>
-    Изначальное заполнение таблицы rates_organizations организациями из API.<br>
+    Изначальное заполнение таблицы организаций из данного API. Заполнение таблицы rates_organizations организациями из API.<br>
     
 <h5>RatesCurrenciesLatestApiErhUpdateController</h5>
-    Обновление таблицы rates_currencies_latest курсов валют на последнее доступное обновление данных из API<br>
+    Обновление курсов валют на последнюю доступную дату. Обновление таблицы rates_currencies_latest<br>
     
 <h5>RatesCurrenciesOverallApiErhInsertController</h5>
     Запись в всех доступных данных курсов валют за доступный период времен
@@ -29,7 +29,6 @@ php -d memory_limit=512M yii rates/rates-currencies-latest-api-erh-update<br>
 <h5>RatesCryptoLatestApiErhUpdateController</h5>
     <br>В разработке<br><br>
     Обновление самых последних данных курсов криптовалют. Обновление даннымими таблицы rates_crypto_latest<br>
-
 </html>
 
 ```
