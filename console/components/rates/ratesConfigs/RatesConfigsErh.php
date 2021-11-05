@@ -26,13 +26,31 @@ class RatesConfigsErh
      * Ссылка на последние обновленные данные курсов криптовалют
      * @var string
      */
+    public $currenciesOverallApi;
+
+    /**
+     * Ссылка на последние обновленные данные курсов криптовалют
+     * @var string
+     */
     public $cryptoLatestApi;
 
     /**
      * Ссылка на последние обновленные данные курсов криптовалют
      * @var string
      */
-    public $currenciesOverallApi;
+    public $cryptoOverallApi;
+
+    /**
+     * Дата начала предоставления курсов криптовалют для данного API
+     * @var string
+     */
+    public $cryptoOverallApiDateRangeStart;
+
+    /**
+     * Ссылка курсы криптовалют на конкретную дату
+     * @var string
+     */
+    public $cryptoHistoricalApi;
 
     /**
      * ID данного API
@@ -44,12 +62,23 @@ class RatesConfigsErh
     {
         $this->apiId = 1;
         $this->organizationsApi = 'https://api.exchangerate.host/sources';
-        $this->currenciesLatestApi = 'https://api.exchangerate.host/latest?base=USD';
 
+        $this->currenciesLatestApi = 'https://api.exchangerate.host/latest?base=USD';
         //currenciesOverallApi ?source=ecb&start_date=2020-01-01&end_date=2020-01-04
         $this->currenciesOverallApi = 'https://api.exchangerate.host/timeseries?base=USD';
+        //cryptoHistoricalApi https://api.exchangerate.host/2020-04-04?source=cbr
+        $this->currenciesHistoricalApi = 'https://api.exchangerate.host/';
 
         $this->cryptoLatestApi = 'https://api.exchangerate.host/latest?base=USD&source=crypto';
+        //cryptoOverallApi &start_date=2020-01-01&end_date=2020-01-04
+        $this->cryptoOverallApi = 'https://api.exchangerate.host/timeseries?base=USD&source=crypto';
+
+        //cryptoHistoricalApi https://api.exchangerate.host/2020-04-04?source=crypto
+        $this->cryptoHistoricalApi = 'https://api.exchangerate.host/';
+
+        $this->cryptoOverallApiDateRangeStart = '2020-05-07';
+
+
     }
 
 }

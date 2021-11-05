@@ -1,15 +1,16 @@
 <?php
 
-namespace console\components\rates\ratesCurrencies\ratesCurrenciesOverall;
+namespace console\components\rates\ratesCrypto\ratesCryptoOverall;
+
 
 /**
  * Содание токена
  * Необходимо для удаления старых данных после того как будут внесены новые данные
  * Чтобы можно было отличить новые данные от старых
- * Class RatesCurrenciesOverallToken
- * @package console\components\rates\ratesCurrencies\ratesCurrenciesOverall
+ * Class RatesCryptoOverallToken
+ * @package console\components\rates\ratesCrypto\ratesCryptoOverall
  */
-class RatesCurrenciesOverallToken
+class RatesCryptoOverallToken
 {
 
     public $token;

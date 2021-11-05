@@ -63,7 +63,7 @@ class RatesCurrenciesOverallApiErhInsertDateRanges
                 else
                     $rangeOne = new \DateTime($dateEach365->format('Y-m-d'));
 
-                $dateEach365->modify('+356 days');
+                $dateEach365->modify('+365 days');
 
                 if ($dateNow->format('Y-m-d') >= $dateEach365->format('Y-m-d')) {
                     $rangeTwo = new \DateTime($dateEach365->format('Y-m-d'));

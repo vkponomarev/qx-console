@@ -4,8 +4,6 @@ namespace console\controllers\rates;
 
 
 use console\components\rates\ratesConfigs\RatesConfigs;
-use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\ratesCurrenciesLatestApiErh\RatesCurrenciesLatestApiErhLogs;
-use console\components\rates\ratesCurrencies\ratesCurrenciesLatest\RatesCurrenciesLatestToken;
 use console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhInsert\RatesCurrenciesOverallApiErhInsertDateRanges;
 use console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhInsert\RatesCurrenciesOverallApiErhInsertDelete;
 use console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhInsert\RatesCurrenciesOverallApiErhInsertInsert;
@@ -17,6 +15,9 @@ use console\components\rates\ratesOrganizations\RatesOrganizationsDataByApiId;
 /**
  * Изначальное заполнение таблицы rates_currencies_overall все курсы валют по всем доступным датам
  * API https://api.exchangerate.host/timeseries?start_date=2020-01-01&end_date=2020-01-04
+ *
+ * Данная команда на 2021.11.01 вносит 1 231 916 строк данных это происходит около 30 минут  *
+ *
  * Class RatesCurrenciesOverallApiErhInsertController
  * @package console\controllers\rates
  */
