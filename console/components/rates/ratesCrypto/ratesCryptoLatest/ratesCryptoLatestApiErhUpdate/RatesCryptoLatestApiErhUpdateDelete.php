@@ -2,6 +2,8 @@
 
 namespace console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate;
 
+use console\models\rates\RatesCryptoLatest;
+
 /**
  * Удаление старых данных курсов криптовалют из таблицы rates_crypto_latest
  * Class RatesCryptoLatestApiErhUpdateDelete
@@ -29,6 +31,14 @@ class RatesCryptoLatestApiErhUpdateDelete
          * https://api.exchangerate.host/latest?base=USD&source=crypto
          * По аналогии с class RatesCurrenciesLatestApiErhDelete
          */
+        $this->apiErhInsert = $apiErhInsert;
+        if ($this->apiErhInsert->apiErhRead->apiResponse) {
+            RatesCryptoLatest::deleteAll([
+                'AND',
+                'api_id' => $this->apiErhInsert->apiErhRead->config->apiId,
+                ['!=', 'token', $this->apiErhInsert->token->token],
+            ]);
+        }
     }
 }
 

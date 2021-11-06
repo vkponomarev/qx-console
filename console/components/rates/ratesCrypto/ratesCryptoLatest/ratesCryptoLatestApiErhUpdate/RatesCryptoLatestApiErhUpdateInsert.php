@@ -65,7 +65,7 @@ class RatesCryptoLatestApiErhUpdateInsert
                     $model->rates_organizations_source = '';
                     $model->base = $this->apiErhRead->apiResponse->base;
                     $model->value = $value;
-                    $model->crypto = 1;
+                    $model->crypto = $currency;
                     $model->date_time =
                         $this->apiErhRead->apiResponse->date .
                         ' ' .
