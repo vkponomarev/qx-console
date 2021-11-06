@@ -37,7 +37,6 @@ class RatesCryptoLatest extends \yii\db\ActiveRecord
             [['base', 'crypto', 'token'], 'required'],
             [['value'], 'number'],
             [['date_time'], 'safe'],
-            [['rates_organizations_source', 'base', 'crypto', 'token'], 'string', 'max' => 255],
         ];
     }
 

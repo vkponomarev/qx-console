@@ -9,6 +9,7 @@ use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiE
 use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\RatesCryptoLatestApiErhUpdateLogs;
 use console\components\rates\ratesCrypto\ratesCryptoLatest\ratesCryptoLatestApiErhUpdate\RatesCryptoLatestApiErhUpdateRead;
 use console\components\rates\ratesCrypto\ratesCryptoLatest\RatesCryptoLatestToken;
+use console\components\rates\ratesOrganizations\RatesOrganizationsDataByApiId;
 
 /**
  * Обновление последних курсов криптовалют из API https://api.exchangerate.host/latest?base=USD&source=crypto
