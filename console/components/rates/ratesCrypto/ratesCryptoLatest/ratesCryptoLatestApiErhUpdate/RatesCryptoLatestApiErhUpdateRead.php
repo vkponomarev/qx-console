@@ -34,6 +34,7 @@ class RatesCryptoLatestApiErhUpdateRead
      * @var \console\components\rates\ratesConfigs\RatesConfigsErh
      */
     public $config;
+    
 
     /**
      * RatesCryptoLatestApiErhUpdateRead constructor.
@@ -41,15 +42,24 @@ class RatesCryptoLatestApiErhUpdateRead
      */
     function __construct($config)
     {
+        $this->config = $config;
 
-        /**
-         * @todo
-         * Необходимо получить данные из API
-         * https://api.exchangerate.host/latest?base=USD&source=crypto
-         * По аналогии с class RatesCurrenciesLatestApiErhRead
-         * Только без организаций
-         *
-         */
+        $apiUrl = $this->config->cryptoLatestApi;
+
+        $responseJson = @file_get_contents($apiUrl);
+
+        if (false !== $responseJson) {
+            try {
+                $response = json_decode($responseJson);
+                if ($response->success === true) {
+                    $this->apiResponse = $response;
+                }
+            } catch (Exception $e) {
+                $this->logErrorApiException = $e;
+            }
+        } else {
+            $this->logErrorApiAccess = 1;
+        }
     }
 }
 
