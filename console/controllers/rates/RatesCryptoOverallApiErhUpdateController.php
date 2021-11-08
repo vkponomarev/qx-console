@@ -4,6 +4,11 @@ namespace console\controllers\rates;
 
 
 use console\components\rates\ratesConfigs\RatesConfigs;
+use console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhUpdate\RatesCryptoOverallApiErhUpdateDataLatest;
+use console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhUpdate\RatesCryptoOverallApiErhUpdateDateRanges;
+use console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhUpdate\RatesCryptoOverallApiErhUpdateInsert;
+use console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhUpdate\RatesCryptoOverallApiErhUpdateLogs;
+use console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhUpdate\RatesCryptoOverallApiErhUpdateRead;
 use console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhUpdate\RatesCurrenciesOverallApiErhUpdateDataByOrgLatest;
 use console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhUpdate\RatesCurrenciesOverallApiErhUpdateDateRanges;
 use console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhUpdate\RatesCurrenciesOverallApiErhUpdateInsert;
@@ -30,15 +35,15 @@ class RatesCryptoOverallApiErhUpdateController extends \yii\console\Controller
      */
     public function actionIndex()
     {
-        new RatesCurrenciesOverallApiErhUpdateLogs(
-            new RatesCurrenciesOverallApiErhUpdateInsert(
-                new RatesCurrenciesOverallApiErhUpdateRead(
+        new RatesCryptoOverallApiErhUpdateLogs(
+            new RatesCryptoOverallApiErhUpdateInsert(
+                new RatesCryptoOverallApiErhUpdateRead(
                     $this->configs = (new RatesConfigs())->erh,
                     $sleepTimeSeconds = 1,
-                    new RatesCurrenciesOverallApiErhUpdateDateRanges(
-                        new RatesCurrenciesOverallApiErhUpdateDataByOrgLatest(
-                            $this->configs,
-                            new RatesOrganizationsDataByApiId($this->configs->apiId))
+                    new RatesCryptoOverallApiErhUpdateDateRanges(
+                        new RatesCryptoOverallApiErhUpdateDataLatest(
+                            $this->configs
+                        )
                     )
                 )
             )

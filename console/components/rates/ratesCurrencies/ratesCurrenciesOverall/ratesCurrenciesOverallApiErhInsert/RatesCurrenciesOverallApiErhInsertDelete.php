@@ -6,7 +6,7 @@ use console\models\rates\RatesCurrenciesLatest;
 use console\models\rates\RatesCurrenciesOverall;
 
 /**
- * Удаление предыдущих ставленных данных для данного API
+ * Удаление предыдущих вставленных данных для данного API
  * Class RatesCurrenciesOverallApiErhInsertDelete
  * @package console\components\rates\ratesCurrencies\ratesCurrenciesOverall\ratesCurrenciesOverallApiErhInsert
  */
