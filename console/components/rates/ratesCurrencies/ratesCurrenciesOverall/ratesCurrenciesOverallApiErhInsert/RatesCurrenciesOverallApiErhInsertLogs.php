@@ -29,7 +29,7 @@ class RatesCurrenciesOverallApiErhInsertLogs
             $model->api_id = 1;
             $model->error = 1;
             $model->component = get_class($this);
-            $model->message = 'Не удалось получить доступ к API ' . $config->organizationsApi;
+            $model->message = 'Не удалось получить доступ к API ' . $config->cryptoOverallApi;
             $model->date_time = (new \DateTime('now'))->format('Y-m-d H:i:s');
             $model->save();
             print_r("\r\n" . $model->message . "\r\n");
@@ -49,7 +49,7 @@ class RatesCurrenciesOverallApiErhInsertLogs
             $model->api_id = 1;
             $model->error = 0;
             $model->component = get_class($this);
-            $model->message = 'Обновление rates_currencies_overall всех курсов валют для данного API прошло успешно ' . $config->organizationsApi;
+            $model->message = 'Обновление rates_currencies_overall всех курсов валют для данного API прошло успешно ' . $config->cryptoOverallApi;
             $model->date_time = (new \DateTime('now'))->format('Y-m-d H:i:s');
             $model->save();
             print_r("\r\n" . $model->message . "\r\n");
@@ -59,7 +59,7 @@ class RatesCurrenciesOverallApiErhInsertLogs
             $model->api_id = 1;
             $model->error = 0;
             $model->component = get_class($this);
-            $model->message = 'Обновление rates_currencies_overall всех курсов валют для данного API прошло неудачно ' . $config->organizationsApi;
+            $model->message = 'Обновление rates_currencies_overall всех курсов валют для данного API прошло неудачно ' . $config->cryptoOverallApi;
             $model->date_time = (new \DateTime('now'))->format('Y-m-d H:i:s');
             $model->save();
             print_r("\r\n" . $model->message . "\r\n");

@@ -36,23 +36,51 @@ class RatesCryptoOverallApiErhInsertRead
      */
     public $logErrorApiAccess = 0;
 
+
     /**
-     * RatesCryptoOverallApiErhInsertRead constructor.
-     * @param $configs \console\components\rates\ratesConfigs\RatesConfigsErh
+     * RatesCurrenciesOverallApiErhInsertRead constructor.
+     * @param $config \console\components\rates\ratesConfigs\RatesConfigsErh
      * @param $sleepTimeSeconds int время простоя в секундах при множественной обработке API
-     * @param $cryptoRanges \console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhInsert\RatesCryptoOverallApiErhInsertDateRanges
+     * @param $organizationsRanges \console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhInsert\RatesCryptoOverallApiErhInsertDateRanges
      */
-    function __construct($configs, $sleepTimeSeconds, $cryptoRanges)
+    function __construct($config, $sleepTimeSeconds, $organizationsRanges)
     {
-        /**
-         * @todo
-         * По аналогии с RatesCurrenciesOverallApiErhInsertRead
-         * Получаем API курсов криптовалют для каждого отрезка $cryptoRanges
-         * $configs->cryptoOverallApi = https://api.exchangerate.host/timeseries?base=USD&source=crypto
-         * https://api.exchangerate.host/timeseries?base=USD&source=crypto&start_date=2020-01-01&end_date=2020-01-04'
-         *
-         * Здесь без орагнизаций, работа только с диапазоном дат
-         */
+        $this->config = $config;
+        $this->organizationsRanges = $organizationsRanges;
+        foreach ($this->organizationsRanges->organizationsRanges as $source => $organization) {
+
+            foreach ($organization as $organizationRange) {
+                sleep($sleepTimeSeconds);
+
+                /**
+                 * $this->config->currenciesOverallApi =
+                 * https://api.exchangerate.host/timeseries?base=USD
+                 */
+                $apiUrl =
+                    ($source <> 'forex') ?
+                        $this->config->currenciesOverallApi .
+                        '&source=' . $source .
+                        '&start_date=' . $organizationRange[0] .
+                        '&end_date=' . $organizationRange[1] :
+                        $this->config->currenciesOverallApi .
+                        '&start_date=' . $organizationRange[0] .
+                        '&end_date=' . $organizationRange[1];
+
+                $responseJson = @file_get_contents($apiUrl);
+                if (false !== $responseJson) {
+                    try {
+                        $response = json_decode($responseJson);
+                        if ($response->success === true) {
+                            $this->apiResponse[$source][] = $response;
+                        }
+                    } catch (Exception $e) {
+                        $this->logErrorApiException = $e;
+                    }
+                } else {
+                    $this->logErrorApiAccess = 1;
+                }
+            }
+        }
     }
 }
 

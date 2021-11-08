@@ -10,6 +10,7 @@ use console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallAp
 use console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhInsert\RatesCryptoOverallApiErhInsertLogs;
 use console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhInsert\RatesCryptoOverallApiErhInsertRead;
 use console\components\rates\ratesCrypto\ratesCryptoOverall\RatesCryptoOverallToken;
+use console\components\rates\ratesOrganizations\RatesOrganizationsDataByApiId;
 
 /**
  * Изначальное заполнение таблицы rates_crypto_overall все курсы криптовалют по всем доступным датам
@@ -22,20 +23,21 @@ class RatesCryptoOverallApiErhInsertController extends \yii\console\Controller
     /**
      * @var RatesConfigs
      */
-    public $configs;
+    public $config;
 
     /**
      * @throws \Exception
      */
     public function actionIndex()
     {
+        $this->config = (new RatesConfigs())->erh;
         new RatesCryptoOverallApiErhInsertLogs(
             new RatesCryptoOverallApiErhInsertDelete(
                 new RatesCryptoOverallApiErhInsertInsert(
                     new RatesCryptoOverallApiErhInsertRead(
-                        $this->configs = (new RatesConfigs())->erh,
+                        $this->config,
                         $sleepTimeSeconds = 1,
-                        new RatesCryptoOverallApiErhInsertDateRanges($this->configs)
+                        new RatesCryptoOverallApiErhInsertDateRanges(new RatesOrganizationsDataByApiId($this->config->apiId))
                     ),
                     new RatesCryptoOverallToken()
                 )
