@@ -27,7 +27,10 @@ php -d memory_limit=512M yii rates/rates-currencies-latest-api-erh-update<br>
 Запись в всех доступных данных курсов валют за доступный период времен
 в таблицу rates_currencies_overall<br>
 <hr>
-<h5>--В работе-- /RatesCryptoLatestApiErhUpdateController </h5>
+<h5>--Структура готова-- *RatesCurrenciesOverallApiErhUpdateController</h5>
+Добавление в таблицу rates_currencies_overall недостающих курсов валют по дням<br>
+<hr>
+<h5>+RatesCryptoLatestApiErhUpdateController </h5>
 Обновление самых последних данных курсов криптовалют. Обновление даннымими таблицы rates_crypto_latest<br>
 <hr>
 <h5>--Структура готова-- *RatesCryptoOverallApiErhInsertController</h5>
