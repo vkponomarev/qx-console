@@ -3,7 +3,6 @@
 namespace console\components\rates\ratesCrypto\ratesCryptoOverall\ratesCryptoOverallApiErhInsert;
 
 
-
 /**
  * Удаление предыдущих данных для данного API
  * Class RatesCryptoOverallApiErhInsertDelete
@@ -37,14 +36,6 @@ class RatesCryptoOverallApiErhInsertDelete
          * Таки образом мы внесли все данные текущие данные и прописали там $token и $apiId
          * И теперь удаляем те данные этого $apiId которые были там до этого внесения данных
          */
-        $this->apiErhInsert = $apiErhInsert;
-        if ($this->apiErhInsert->apiErhRead->apiResponse) {
-            RaCryOver::deleteAll([
-                'AND',
-                'api_id' => $this->apiErhInsert->apiErhRead->config->apiId,
-                ['!=', 'token', $this->apiErhInsert->token->token],
-            ]);
-        }
     }
 }
 
